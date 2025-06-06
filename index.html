@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canary Adventures</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+ 
+  <canvas id="canvas" width="640" height="480"></canvas>
+  
+  
+  <div id="help_div"> 
+	  <span class="headings" >LEVEL:</span><span id="level_num"></span> <br>
+	  <span class="headings">Escape Button:</span> start or pause game.<br>
+	  <span class="headings">Left Arrow:</span> move left<br>
+	  <span class="headings">Right Arrow:</span> move right<br>
+	  <span class="headings">Up Arrow:</span> jump<br>
+	  <span class="headings">Control Button:</span> throw bomb<br>
+  </div>
+  <div id="right_div"> 
+  <div id="stats" ></div>  
+<center>  
+  <!-- <img oncontextmenu="return false;" ondrag="return false;" id="vkeyleftup" src="./assets/vkeyLU.png"></img> -->
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyup" src="./assets/vkeyup.png"></img>
+  <!-- <img oncontextmenu="return false;" ondrag="return false;" id="vkeyrightup" src="./assets/vkeyRU.png"></img> -->
+  <br>
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyleft" src="./assets/vkeyleft.png"></img>
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyEsc" src="./assets/vkeyEscape.png"></img>
+  
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyright" src="./assets/vkeyright.png"></img>
+  <br>
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyfire" src="./assets/vkeyfire.png"></img>
+   </center>
+  </div>
+ 
+  <audio id="level_music" src="./assets/level.wav"></audio>
+  <audio id="level_die" src="./assets/level_die.wav"></audio>
+  <script src="tools.js"></script>
+  <script src="sprites.js"></script>
+  <script src="data.js" ></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
