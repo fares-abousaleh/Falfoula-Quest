@@ -13,8 +13,8 @@ canvas {
 	  width:60%;
 	  /* height:60%; */
       display: inline;
-      margin: 20px;
-	  box-shadow:20px 20px 20px rgba(0,0,0,0.4);
+      margin: 1px;
+	  box-shadow:2px 2px 2px rgba(0,0,0,0.4);
       image-rendering: pixelated;
       background: #7ec0ee;
 }
@@ -75,11 +75,11 @@ img{
 	/* display:block; */
 	 user-select:none;
 	pointer-events:none;
-	margin:20px;
+	margin:2px;
 	margin-bottom:2px;
 	padding:25px;
-	box-shadow:15px 15px 10px rgba(0,0,0,0.4);
-	border-radius:15px;	
+	box-shadow:5px 5px 1px rgba(0,0,0,0.4);
+	border-radius:1px;	
 	background-color:#788;
 	color:#aef;
 	font-family:Courier;
