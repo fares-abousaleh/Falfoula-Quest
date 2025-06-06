@@ -101,7 +101,13 @@ function mouseBtn(e){
 	 else keys[e.target.vstate]=false
 
 	if(keys.Escape)keyHand({key:"Escape"})
-	
+	if(gameRunning&&!musicPlaying){
+		level_music.pause()
+		level_die.pause()
+		level_music.currentTime=0
+		level_die.currentTime=0
+		playMusic()
+	}
 } 
 function onDrag(){return false}
 
