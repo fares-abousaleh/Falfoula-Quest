@@ -13,7 +13,7 @@ canvas {
 	  width:64%;
 	  /* height:60%; */
       display: inline;
-      margin: 1px;
+      margin: 0;
 	  box-shadow:2px 2px 2px rgba(0,0,0,0.4);
       image-rendering: pixelated;
       background: #7ec0ee;
@@ -47,7 +47,7 @@ canvas {
 	 /* flex-wrap: wrap; */
      align-items:center;	
 	user-select:none;
-	width:36%;
+	width:34%;
 	}
 	
 img{
