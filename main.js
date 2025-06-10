@@ -1,4 +1,4 @@
-window.ondblclick =function (){
+canvas.ondblclick =function (){
 
     document.body.requestFullscreen()
 	
