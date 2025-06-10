@@ -1,8 +1,4 @@
-elem.ondblclick =function (){
 
-    elem.requestFullscreen()
-	
-}
 function update() {
 	const DT_MAX = 1000/40
 	dt = Date.now() - lapStartTime;
