@@ -37,6 +37,7 @@ setMusic([
 	])
 	
 loadImages([
+	"belt",
 	"filterDoor",
 	"filterDoor1",
 	"pass",
@@ -101,13 +102,7 @@ function mouseBtn(e){
 	 else keys[e.target.vstate]=false
 
 	if(keys.Escape)keyHand({key:"Escape"})
-	if(gameRunning&&!musicPlaying){
-		level_music.pause()
-		level_die.pause()
-		level_music.currentTime=0
-		level_die.currentTime=0
-		playMusic()
-	}
+	
 } 
 function onDrag(){return false}
 
@@ -120,14 +115,13 @@ function setMouseHand(o,cap){
 	o.ondrag = mouseBtn
 	o.onmouseout = mouseBtn
 }
-
-// setMouseHand(vkeyleftup,["l","u"])
+try{
 setMouseHand(vkeyleft,"ArrowLeft")
-// setMouseHand(vkeyrightup,["r","u"])
 setMouseHand(vkeyright,"ArrowRight")
 setMouseHand(vkeyup,"ArrowUp")
 setMouseHand(vkeyfire,"Control")
 setMouseHand(vkeyEsc,"Escape")
+}catch(e){}
 
 /*****************************************
     Player
@@ -154,6 +148,7 @@ setMouseHand(vkeyEsc,"Escape")
 		this.punch.width = 16
 		this.punch.height = 16
 		this.dir = 1
+		this.belting= false
 	}
 	
 	 
@@ -308,11 +303,11 @@ setMouseHand(vkeyEsc,"Escape")
 	
 	updateState(){
 		const flying = !this.feetOnGround()
-		if(this.vx==0)this.ctr=0
-		else
-		this.ctr+=0.142*dt*(true==(flying||keys["ArrowLeft"]||keys["ArrowRight"])) 
+		// if(this.vx==0)this.ctr=0
+		// else
+		this.ctr+=0.142*dt*(true==(this.belting||flying||keys["ArrowLeft"]||keys["ArrowRight"])) 
 		this.ctr%=12
-		 
+		this.belting=false 
 		
 		if(flying){
 			if(this.dir>0){
@@ -795,7 +790,64 @@ class Box extends Sprite{
 	}
 	
  }
- 
+/*****************************************
+    Belt
+ *****************************************/ 
+
+class Belt extends Sprite{
+
+	constructor(){
+		super("belt")
+		this.width=64
+		this.height=64
+		 
+		this.ctr = 0
+		this.pnts=[]
+		for(let i=0;i<29;i++)
+			this.pnts.push({x:rnd(0,this.width),y:rnd(0,this.height)})
+	}
+	
+	draw(ctx){
+		let th = 0
+		if(this.dir<0)th = Math.PI
+		super.drawRot(ctx,th)
+		
+		
+		ctx.save()
+		ctx.translate(-ViewX,-ViewY)
+		for(let i in this.pnts)
+		if(this.pnts[i].x<this.width)
+		{
+			let xx = this.pnts[i].x
+			if(this.dir>0)xx = this.width-xx
+			const x = this.x-this.width/2 + xx
+			const y = this.y-this.height/2 + this.pnts[i].y
+			ctx.strokeStyle =  "#"+Math.round(255*this.pnts[i].x/this.width).toString(16)+"0000"
+			ctx.strokeRect(x,y,1,1)
+		}
+		ctx.restore()
+	}
+
+	update(dt){
+		this.ctr+=dt*0.0031
+		for(let i in this.pnts){
+			this.pnts[i].x-=dt*0.03*rnd(1,3.3)
+			this.pnts[i].y-=dt*rnd(0.003)
+			if(this.pnts[i].x<0||rnd()<0.1){
+			   this.pnts[i].x =  this.width+rnd(20) 
+			   this.pnts[i].y =  rnd(0,this.height)
+			}
+		}
+		 
+		if(checkCollisionBox(this,player) ) {
+			 player.vx = this.dir * player.speed 
+			 player.vctr = 1
+			 player.belting |= true
+		}
+		 
+	}
+}
+
 /*****************************
 	Loading Levels
  *****************************/
@@ -812,13 +864,14 @@ let hearts=[]
 const enemies = []
 const waters= []
 const numbers= []
+const belts=[]
 
 function loadLevel(level){
 	
 	if(level>=LEVELS.length)return
 	 
 	
-	let {NUMBERS,FILTERS,WATERS,BOMBS,DOORKEYS,DOORS,BOXES,ENEMIES,PLAYER,SEEDS} = LEVELS[level]
+	let {BELTS,NUMBERS,FILTERS,WATERS,BOMBS,DOORKEYS,DOORS,BOXES,ENEMIES,PLAYER,SEEDS} = LEVELS[level]
 	
 	boxes_.length=0
 	boxes.length=0
@@ -831,6 +884,7 @@ function loadLevel(level){
 	numbers.length = 0
 	hearts.length = 0
 	waters.length=0
+	belts.length=0
 	
 	for(let i in BOXES){
 	 const b = new Box()
@@ -901,6 +955,12 @@ function loadLevel(level){
 		let o = new NumberPass()
 		Object.assign(o,NUMBERS[i])
 		numbers.push(o)
+	}
+	
+	for(let i in BELTS){
+		let o = new Belt()
+		Object.assign(o,BELTS[i])
+		belts.push(o)
 	}
 	
 }

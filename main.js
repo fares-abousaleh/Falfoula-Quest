@@ -18,6 +18,7 @@ function update() {
 	filters.forEach(sp => sp.update(dt) )
 	doors.forEach(sp => sp.update(dt) )
 	bombs.forEach(sp => sp.update(dt) )
+	belts.forEach(sp => sp.update(dt) )
 	
 	for(let i in hearts)
 	  if(hearts[i].y<-40){
@@ -41,6 +42,7 @@ let stat_ctr = 0
 function draw() {
   ctx.drawImage(Images["bk"],-ViewX,-ViewY,WW,HH)
   boxes.forEach(sp => sp.draw(ctx) )
+  belts.forEach(sp => sp.draw(ctx) )
   doors.forEach(sp => sp.draw(ctx) )
   seeds.forEach(sp => sp.draw(ctx) )
   doorkeys.forEach(sp => sp.draw(ctx) )
@@ -51,6 +53,7 @@ function draw() {
   flies.forEach(sp => sp.draw(ctx) )
   enemies.forEach(sp => sp.draw(ctx) )
   hearts.forEach(sp => sp.draw(ctx) )
+  
   
   player.draw(ctx)
   if(stat_ctr<=0){
@@ -112,11 +115,14 @@ function showHelp( ){
 function toggle(){
 	gameRunning = !gameRunning
 	if(!gameRunning){
+		
 		showHelp()
 		stopMusic()
 	}else {
+		
 		document.getElementById("help_div").style.display="none"
 		lapStartTime = Date.now();
 		playMusic() 
 	}
 }
+ 
