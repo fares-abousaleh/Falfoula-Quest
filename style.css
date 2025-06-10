@@ -11,7 +11,7 @@ body {
     
 canvas {
 	  /*width:60%;*/
-	height:99%; 
+	height:90vh; 
       display: inline;
       margin: 5px;
 	  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -48,7 +48,7 @@ canvas {
      align-items:center;	
 	user-select:none;
 	/*width:30%;*/
-	height:99%;
+	height:90vh;
 	}
 	
 img{
