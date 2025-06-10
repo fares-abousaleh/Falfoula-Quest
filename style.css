@@ -10,8 +10,8 @@ body {
 }
     
 canvas {
-	  width:60%;
-	  /* height:60%; */
+	  /*width:60%;*/
+	height:99%; 
       display: inline;
       margin: 5px;
 	  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -47,7 +47,8 @@ canvas {
 	 /* flex-wrap: wrap; */
      align-items:center;	
 	user-select:none;
-	width:30%;
+	/*width:30%;*/
+	height:99%;
 	}
 	
 img{
