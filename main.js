@@ -1,6 +1,6 @@
 canvas.ondblclick =function (){
 
-    document.body.requestFullscreen()
+    elem.requestFullscreen()
 	
 }
 function update() {
