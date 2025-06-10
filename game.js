@@ -74,7 +74,7 @@ function keyHand(e) {
 	
 	keys[e.key] = true
 	
-	if(e.key=='Escape')
+	if(e.key=='Enter')
 		toggle()
 	
 	if(gameRunning&&!musicPlaying){
@@ -101,8 +101,12 @@ function mouseBtn(e){
 		 keys[e.target.vstate]=true
 	 else keys[e.target.vstate]=false
 
-	if(keys.Escape)keyHand({key:"Escape"})
-	
+	if(keys.Enter)keyHand({key:"Enter"})
+	else	
+	if(keys.Fullscreen)
+		if(!document.fullscreen){
+			document.body.requestFullscreen()
+		}else  document.exitFullscreen()
 } 
 function onDrag(){return false}
 
@@ -120,7 +124,8 @@ setMouseHand(vkeyleft,"ArrowLeft")
 setMouseHand(vkeyright,"ArrowRight")
 setMouseHand(vkeyup,"ArrowUp")
 setMouseHand(vkeyfire,"Control")
-setMouseHand(vkeyEsc,"Escape")
+setMouseHand(vkeyEsc,"Enter")
+setMouseHand(vkeyFull,"Fullscreen")
 }catch(e){}
 
 /*****************************************
