@@ -1,6 +1,6 @@
 window.ondblclick =function (){
 
-    document.body.requestFullScreen()
+    document.body.requestFullscreen()
 	
 }
 function update() {
