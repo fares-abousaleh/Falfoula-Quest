@@ -10,8 +10,8 @@ body {
 }
     
 canvas {
-	  width:60%;
-	  /* height:60%; */
+	/*  width:60%;*/
+	   height:100vmin;
       display: inline;
       margin: 5px;
 	  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -47,7 +47,7 @@ canvas {
 	 /* flex-wrap: wrap; */
      align-items:center;	
 	user-select:none;
-	width:30%;
+	height:100vmin;
 	}
 	
 img{
@@ -58,8 +58,8 @@ img{
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
 	background-color:rgba(0,0,0,0); 
 	border-radius:3px;	
-	width:60px;
-	height:60px;
+	width:50%;
+	height:50%;
 }
 .headings{
 		padding-right:5px;
