@@ -13,7 +13,7 @@ canvas {
 	/*  width:60%;*/
 	   width:55vmax;
       display: inline;
-      margin: 5px;
+      margin:0;
 	  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
       image-rendering: pixelated;
       background: #7ec0ee;
@@ -52,7 +52,7 @@ canvas {
 	
 img{
 	user-select:none;
-	margin:2px;
+	margin:0;
 	draggable:false;
 	padding:5px;
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -75,7 +75,7 @@ img{
 	/* display:block; */
 	 user-select:none;
 	pointer-events:none;
-	margin:5px;
+	margin:0;
 	margin-bottom:2px;
 	padding: 5px;
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -90,7 +90,7 @@ img{
 }	
 .panel{
 	 user-select:none;
-	margin:5px;
+	margin:0;
 	margin-bottom:2px;
 	padding: 5px;
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
