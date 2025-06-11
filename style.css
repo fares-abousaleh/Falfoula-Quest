@@ -47,7 +47,7 @@ canvas {
 	 /* flex-wrap: wrap; */
      align-items:center;	
 	user-select:none;
-	height:100vmin;
+	/*height:100vmin;*/
 	}
 	
 img{
