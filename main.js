@@ -36,12 +36,19 @@ function update() {
 		level_music.play()
 		adjustView(player)
 		draw()	
-	}
+	}else
+		if(player.scoreChips<0){
+			loadLevel(CurLevel)
+			adjustView(player)
+			level_die.play()
+			toggle()
+		}   
 }
 let stat_ctr = 0
 function draw() {
-  ctx.drawImage(Images["bk"],-ViewX,-ViewY,WW,HH)
-  boxes.forEach(sp => sp.draw(ctx) )
+ // ctx.drawImage(Images["bk"],-ViewX,-ViewY,WW,HH)
+  ctx.drawImage(bkgrnd,-ViewX,-ViewY,WW,HH)
+  //boxes.forEach(sp => sp.draw(ctx) )
   belts.forEach(sp => sp.draw(ctx) )
   doors.forEach(sp => sp.draw(ctx) )
   seeds.forEach(sp => sp.draw(ctx) )
@@ -108,8 +115,11 @@ window.onload = function(){
     Help Screen
  *****************************************/
 function showHelp( ){
-	document.getElementById("level_num").innerHTML=" "+(CurLevel+1)
-	document.getElementById("help_div").style.display="block"
+	document.getElementById("level_num").innerHTML=" "+(CurLevel+1)	
+	const help = document.getElementById("help_div")
+	help.pageX = canvas.pageX + 145
+	help.pageY = canvas.pageY + 145
+	help.style.display="inline"
 }
 
 function toggle(){
@@ -119,8 +129,10 @@ function toggle(){
 		showHelp()
 		stopMusic()
 	}else {
+		const help = document.getElementById("help_div")
+		help.style.display="none"
+		 
 		
-		document.getElementById("help_div").style.display="none"
 		lapStartTime = Date.now();
 		playMusic() 
 	}

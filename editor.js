@@ -286,6 +286,12 @@ window.onkeydown = function(e){
 			removeAtPos(doorkeys,xx,yy)
 		break
 		
+		case 'F4':
+			const all = [boxes,belts,numbers,filters,waters,enemies,seeds,doors,bombs,doorkeys]
+			all.forEach(a=>a.length=0)
+			clearArr()
+		break
+		
 		default:
 		{
 			const k = e.key.charCodeAt(0) - '0'.charCodeAt(0)
@@ -308,6 +314,22 @@ window.onkeydown = function(e){
 	
 	draw()
 }
+function makeArr(){
+	for(let i in boxes)
+		{
+			const b =  boxes[i]
+			const x = Math.floor(b.x / blsz)
+			const y = Math.floor(b.y / blsz)
+			arr[y][x]=1
+		}
+}
+
+function clearArr(){
+	for(let y=0;y<Ny;y++){
+		for(let x=0;x<Nx;x++) 
+			arr[y][x]=0
+	} 
+}
 
 window.onload = function(){
 
@@ -321,13 +343,7 @@ window.onload = function(){
 	
 	loadLevel(0)
 	
-    for(let i in boxes)
-	{
-		const b =  boxes[i]
-		const x = Math.floor(b.x / blsz)
-		const y = Math.floor(b.y / blsz)
-		arr[y][x]=1
-	}
+	makeArr()
 	
 	
 	

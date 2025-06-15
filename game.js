@@ -88,6 +88,17 @@ function keyHand(e) {
 	if(gameRunning&&e.key=='n'){
 		seeds.length=0
 	}
+	
+	if(gameRunning&&e.key==' '){
+		//hurtPlayer(0)
+		player.scoreChips=-1
+		//console.log("hurt")
+	}
+	
+	if(e.key=='f')
+	if(!document.fullscreen){
+			document.body.requestFullscreen()
+		}else  document.exitFullscreen()
 		
 }
 
@@ -98,15 +109,9 @@ window.addEventListener("keyup", e => keys[e.key] = false)
 function mouseBtn(e){
 	e.preventDefault()
 	if(e.type=="mousedown"||e.type=="touchstart")
-		 keys[e.target.vstate]=true
+		keyHand({key:e.target.vstate})
 	 else keys[e.target.vstate]=false
 
-	if(keys.Enter)keyHand({key:"Enter"})
-	else	
-	if(keys.Fullscreen)
-		if(!document.fullscreen){
-			document.body.requestFullscreen()
-		}else  document.exitFullscreen()
 } 
 function onDrag(){return false}
 
@@ -125,7 +130,8 @@ setMouseHand(vkeyright,"ArrowRight")
 setMouseHand(vkeyup,"ArrowUp")
 setMouseHand(vkeyfire,"Control")
 setMouseHand(vkeyEsc,"Enter")
-setMouseHand(vkeyFull,"Fullscreen")
+setMouseHand(vkeyFull,"f")
+setMouseHand(vkeyKill," ")
 }catch(e){}
 
 /*****************************************
@@ -301,7 +307,9 @@ setMouseHand(vkeyFull,"Fullscreen")
 		
 
 		this.updateState()
-		   
+		
+		
+		
 		adjustView(this)
 		
 	}
@@ -344,15 +352,11 @@ setMouseHand(vkeyFull,"Fullscreen")
  }
  
  function hurtPlayer(){
+	
 	player.scoreChips--
 	playSound("outch")
 	player.th=2*Math.PI
-	if(player.scoreChips<=0){
-		loadLevel(CurLevel)
-		adjustView(player)
-		level_die.play()
-		toggle()
-	}
+	
  }	 
   
 /*****************************************
@@ -870,13 +874,16 @@ const enemies = []
 const waters= []
 const numbers= []
 const belts=[]
-
+const bkgrnd = document.createElement("canvas")
+bkgrnd.width = WW
+bkgrnd.height = HH
 function loadLevel(level){
 	
 	if(level>=LEVELS.length)return
 	 
 	
 	let {BELTS,NUMBERS,FILTERS,WATERS,BOMBS,DOORKEYS,DOORS,BOXES,ENEMIES,PLAYER,SEEDS} = LEVELS[level]
+	
 	
 	boxes_.length=0
 	boxes.length=0
@@ -900,7 +907,13 @@ function loadLevel(level){
 	 b.height = 32
 	 boxes[i] = b
 	}
-	
+	//------ draw fixed boxes 
+	{
+		c = bkgrnd.getContext("2d")
+		c.drawImage(Images.bk,0,0,WW,HH)
+		c.fillStyle="#00f"
+		boxes.forEach(b=>c.drawImage(Images.box,b.x-16,b.y-16,32,32))
+	}
 	boxes_.push(boxes)
  
 	const oldP = Object.assign({},player)
