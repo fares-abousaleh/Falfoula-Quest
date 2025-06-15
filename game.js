@@ -920,7 +920,7 @@ function loadLevel(level){
 	player = new Player()
 	Object.assign(player,PLAYER)
 	if(oldP.scoreButterflies){
-		player.scoreChips = oldP.scoreChips
+		//player.scoreChips = oldP.scoreChips
 		player.scoreButterflies = oldP.scoreButterflies
 	}
 	for(let i in ENEMIES)
