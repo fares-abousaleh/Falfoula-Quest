@@ -16,10 +16,10 @@ body::backdrop{
 }
     
 canvas {
-	  /* width:60%; */
-	  /* height:60%; */
+	  width:98%;
+	  height:98%;
       display: inline;
-      margin: 5px;
+      /* margin: 5px; */
 	  box-shadow:5px 5px 5px rgba(0,0,0,0.4);
       image-rendering: pixelated;
       background: #7ec0ee;
@@ -53,14 +53,14 @@ canvas {
 	 /* flex-wrap: wrap; */
     align-items:center;	
 	user-select:none;
-	width:300px;
-	height:480px;
+	width:30%;
+	height:100%;
 	}
 #left_div	{
 	  position:relative;
 	user-select:none;
-	width:650px;
-	height:490px;
+	width:65%;
+	height:100%;
 	
 	}
 img{
@@ -71,8 +71,8 @@ img{
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
 	background-color:rgba(0,0,0,0); 
 	border-radius:3px;	
-	width:50px;
-	height:70px;
+	width:20% ;
+	height:30%;
 }
 img:hover{
    box-shadow:5px 5px 5px rgba(0,0,0,0.4);
@@ -91,24 +91,24 @@ img:hover{
 	/* display:block; */
 	 user-select:none;
 	pointer-events:none;
-	margin:5px;
-	margin-bottom:2px;
-	padding: 5px;
+	/* margin:5px; */
+	/* margin-bottom:2px; */
+	padding: 3%;
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
 	border-radius:5px;	
 	background-color:rgba(90,90,100,0.4);
 	color:#aef;
 	font-family:Courier;
 	width:100%;
-	height:180px;
+	height:50%;
 	font-weight:600;
-	font-size:1.1em; 
+	 font-size:1.1em; 
 	
 }	
 .panel{
 	 user-select:none;
-	margin:5px;
-	margin-bottom:2px;
+	/* margin:5px; */
+	/* margin-bottom:2px; */
 	padding: 5px;
 	box-shadow:5px 5px 5px rgba(0,0,0,0.4);
 	border-radius:5px;	
@@ -116,7 +116,7 @@ img:hover{
 	color:#aef;
 	font-family:Courier;
 	width:100%;
-	height:270px;
+	height:50%;
 	font-weight:600;
 	font-size:1.1em; 
 	
