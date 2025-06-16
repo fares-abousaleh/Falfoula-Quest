@@ -85,9 +85,9 @@ function writeStats(){
 	const tag = "<span class='headings1'>"
 	stats.innerHTML=tag+`level:</span>  ${(CurLevel+1)}<br>`
 				   +tag+`life:</span>  ${player.scoreChips}<br>`
-				   +tag+`energy:</span>  ${player.scoreButterflies}<br>`
+				//   +tag+`energy:</span>  ${player.scoreButterflies}<br>`
 				   +tag+`key:</span>  ${player.key }<br>`
-				   +tag+`bombs:</span>  ${player.bombs}<br>`
+				//   +tag+`bombs:</span>  ${player.bombs}<br>`
 				   +tag+`pass:</span>  ${player.number}<br>`
 	if(dt&&dt>0)
 		stats.innerHTML+= tag+`fps:</span> ${Math.floor(1000.0/dt)} `
