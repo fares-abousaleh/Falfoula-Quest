@@ -6,7 +6,9 @@
   <link rel="icon" type="image/png" href="./assets/oiseauRight.png"> 
 </head>
 <body>
- <div id="left_div">
+<table>
+<tr>
+ <td id="left_div">
   <canvas id="canvas" width="640" height="480"></canvas>
   
   
@@ -19,8 +21,14 @@
 	  <span class="headings">Control Button:</span> throw bomb<br>
 	  <span class="headings">Spacebar:</span> restart level<br>
   </div>
-   </div>
-  <div id="right_div"> 
+   </td>
+  <td id="right_div"> 
+   <div class="panel" >
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyEsc" src="./assets/vkeyRet.png"></img>
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyFull" src="./assets/vkeyFull.png"></img>
+  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyKill" src="./assets/vkeyKill.png"></img>
+    
+   </div> 
   <div id="stats" ></div>  
   <div class="panel">
 <center>  
@@ -33,13 +41,11 @@
   <img oncontextmenu="return false;" ondrag="return false;" id="vkeyright" src="./assets/vkeyright.png"></img>
   <br>
   <img oncontextmenu="return false;" ondrag="return false;" id="vkeyfire" src="./assets/vkeyfire.png"></img>
-  <br>
-   <img oncontextmenu="return false;" ondrag="return false;" id="vkeyEsc" src="./assets/vkeyRet.png"></img>
-  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyFull" src="./assets/vkeyFull.png"></img>
-  <img oncontextmenu="return false;" ondrag="return false;" id="vkeyKill" src="./assets/vkeyKill.png"></img>
-    </div>
+   </div>
   </center>
-  </div>
+  </td>
+  </tr>
+  </table>
  
   <audio id="level_music" src="./assets/level.wav"></audio>
   <audio id="level_die" src="./assets/level_die.wav"></audio>
